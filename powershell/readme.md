@@ -25,10 +25,10 @@ After setting up a profile, you should run a simple query to verify it works cor
 
 # Examples 
 ## Run query defined on command line. No variables
-    Invoke-RingtailQuery -Query "{ cases { id name }}"
+`Invoke-RingtailQuery -Query "{ cases { id name }}"`
 
 ## Run it from a file
-    Invoke-RingtailQuery -Path .\queries\GetCases.txt
+`Invoke-RingtailQuery -Path .\queries\GetCases.txt`
 
 ## Add variables. 
     $vars = @{ scroll = @{ limit=4; start = 0} }
@@ -40,10 +40,10 @@ After setting up a profile, you should run a simple query to verify it works cor
 		a single query that can be used to return all results, a single page or to scroll through all (see next example)
 
 ## Use a query with $scroll parameters and iterate/scroll through the data 
-    Invoke-RingtailQueryWithScroll -Path .\queries\GetCaseStatsScroll.txt
+`Invoke-RingtailQueryWithScroll -Path .\queries\GetCaseStatsScroll.txt`
 
 ## Drill down to the cases results
-    Invoke-RingtailQuery -Path .\queries\GetCases.txt | Select -ExpandProperty data | Select -ExpandProperty cases 
+`Invoke-RingtailQuery -Path .\queries\GetCases.txt | Select -ExpandProperty data | Select -ExpandProperty cases `
 
 ## Convert results to Json
-    Invoke-RingtailQuery -Path .\queries\GetCaseStatsScroll.txt -Variables $vars  | ConvertTo-json -Depth 10
+`Invoke-RingtailQuery -Path .\queries\GetCaseStatsScroll.txt -Variables $vars  | ConvertTo-json -Depth 10`
