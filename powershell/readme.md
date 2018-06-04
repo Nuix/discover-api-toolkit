@@ -31,8 +31,8 @@ Invoke-RingtailQuery -Query "{ cases { id name }}"
 Invoke-RingtailQuery -Path .\queries\GetCases.txt
 
 ## Add variables. 
-$vars = @{ scroll = @{ limit=4; start = 0} }
-Invoke-RingtailQuery -Path .\queries\GetCaseStatsScroll.txt -Variables $vars
+    $vars = @{ scroll = @{ limit=4; start = 0} }
+    Invoke-RingtailQuery -Path .\queries\GetCaseStatsScroll.txt -Variables $vars
 
 	NOTE: this just returns a single page of results
 	NOTE: if variables aren't supplied then the $scroll parameters is 
