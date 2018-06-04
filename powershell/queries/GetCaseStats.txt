@@ -1,0 +1,10 @@
+query stats($scroll: PageParams) {
+  cases(scroll: $scroll) {
+    id
+    name
+    statistics {
+      dtIndexSize
+      aggregateDatabases
+    }
+  }
+}

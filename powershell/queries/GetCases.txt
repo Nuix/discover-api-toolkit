@@ -1,0 +1,6 @@
+query allcases($scroll: PageParams) {
+	cases(scroll: $scroll) {
+	    id
+	    name
+    }
+ }
