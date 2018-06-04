@@ -45,8 +45,7 @@ function Get-RingtailConfig {
 
 function Add-RingtailConfig {
     param(
-        [Parameter(Mandatory)]
-        [string]$Name,
+        [string]$Name = '',
         [Parameter(Mandatory)]
         [string]$Token,
         [Parameter(Mandatory)]
@@ -54,6 +53,10 @@ function Add-RingtailConfig {
         [Parameter(Mandatory)]
         [string]$Uri
     )
+        if( [string]::IsNullOrEmpty($Profile) ) {
+        $Profile = "default"
+    }
+
     # Get the complete configuration 
     [Array]$config = Get-RingtailConfig -List
     
