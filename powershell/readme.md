@@ -1,8 +1,13 @@
 # Overview
 The RingtailAPI PowerShell module is used to manage tokens, apikeys and interact with the Ringtail Connect API using Powershell
 
+	Note: This has been validated on Powershell 4 but should work under Powershell 3 as well.
+
 # How to install
-TODO
+Until this module is available in PowershellGallery, you can install directly from Github
+1. Clone this repository
+2. Change to the `powershell` directory
+3. Install the module by copying the RingtailAPI directory to one of the valid module locations outlined here: https://msdn.microsoft.com/en-us/library/dd878350(v=vs.85).aspx
 
 # Manage your tokens and keys
 This modules looks for a configuration file in <$home>\.ringtail\config. Although you can edit it with any text editor, you can also use a series of methods to create and manage various *profiles*. Each *profile* maps to a combination of Ringtail portal, apikey, token, and uri to the portal API. 
@@ -22,6 +27,10 @@ If you have another portal and/or user account that you wish to run under, you c
 `Add-RingtailConfig -Name Portal2` and enter the information for that portal and user account. 
 
 After setting up a profile, you should run a simple query to verify it works correctly. To run with a non-default profile, just supply a profile name for the `-Profile` parameter. 
+
+To update an existing account, you should first delete the existing profile and then re-add it with the new parameters:
+`Remove-RingtailConfig -Name Portal1'
+
 
 # Examples 
 ## Run query defined on command line. No variables

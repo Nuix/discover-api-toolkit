@@ -53,8 +53,8 @@ function Add-RingtailConfig {
         [Parameter(Mandatory)]
         [string]$Uri
     )
-        if( [string]::IsNullOrEmpty($Profile) ) {
-        $Profile = "default"
+        if( [string]::IsNullOrEmpty($Name) ) {
+        $Name = "default"
     }
 
     # Get the complete configuration 
