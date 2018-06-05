@@ -7,8 +7,11 @@ The RingtailAPI PowerShell module is used to manage tokens, apikeys and interact
 Until this module is available in PowershellGallery, you can install directly from Github
 1. Clone this repository
 2. Change to the `powershell` directory
-3. Install the module by copying the RingtailAPI directory to one of the valid module locations outlined here: https://msdn.microsoft.com/en-us/library/dd878350(v=vs.85).aspx
-4. Alternatively: `Import-Module \\Path\to\RingtailAPI`
+3. Import the module: `Import-Module \\Path\to\RingtailAPI`
+4. Alternatively, install the module by copying the RingtailAPI directory to one of the valid module locations outlined here: https://msdn.microsoft.com/en-us/library/dd878350(v=vs.85).aspx
+5. Verify that the module is loaded correctly:
+`Get-Command -Module RingtailAPI`
+This should provide a list of commands provided by the module.
 
 # Manage your tokens and keys
 This module looks for a configuration file in <$home>\.ringtail\config. Although you can edit it with any text editor (it's json format), you can also use a series of methods to create and manage various *profiles*. Each *profile* maps to a combination of Ringtail portal, apikey, token, and uri to the portal API endpoint. 
