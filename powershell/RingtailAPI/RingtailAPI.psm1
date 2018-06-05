@@ -153,6 +153,7 @@ function Invoke-RingtailQuery {
     $config = Get-RingtailConfig -Profile $Profile
     $token = $config.token
     $key = $config.apiKey
+    $uri = $config.uri
 
     $headers = @{}
     $headers.Add("Authorization", "Bearer $token")
