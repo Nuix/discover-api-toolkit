@@ -1,7 +1,16 @@
 ﻿## -- configuration -- 
 
 function Get-RingtailConfigPath {
-    $path = "$home\.ringtail\config"
+    # Create the directory if necessary.
+    $targetDir = "$home\.ringtail"
+    $path = "$targetDir\config"
+
+    # Create and empty config file if one doesn't exist
+    if(!(Test-Path $targetDir)) {
+        # New-Item -ItemType Directory $targetDir
+        New-Item -ItemType File $path
+    }
+
     $path
 }
 
@@ -32,7 +41,6 @@ function Get-RingtailConfig {
     $config = @()
     
     if( Test-Path $path -PathType Leaf ) {
-      
       $config = Get-Content $path | Out-String  | ConvertFrom-Json
     }
 
