@@ -53,7 +53,8 @@ To update an existing profile, first delete the existing profile and then add it
 	NOTE: this just returns a single page of results
 	NOTE: if variables aren't supplied then the $scroll parameter is 
 		ignored and the maximum number of results are returned. This allows you to write
-		a single query that can be used to return all results, a single page or to scroll through all (see the next example)
+		a single query that can be used to return all results, a single page or to scroll 
+		through all (see the next example)
 
 ## Use a query with $scroll parameters and iterate/scroll through the data 
 `Invoke-RingtailQueryWithScroll -Path .\queries\GetCaseStatsScroll.txt`
