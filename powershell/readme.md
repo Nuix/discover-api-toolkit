@@ -37,24 +37,29 @@ To update an existing profile, first delete the existing profile and then add it
 
 
 # Examples 
-## Run query defined on command line. No variables
+## Run query defined on command line, without variables
 `Invoke-RingtailQuery -Query "{ cases { id name }}"`
 
-## Run it from a file
+## Run a query from a file
 `Invoke-RingtailQuery -Path .\queries\GetCases.txt`
 
 ## Use a non-default profile
 `Invoke-RingtailQuery -Path .\queries\GetCases.txt -Profile portal2`
 
-## Add variables. 
-    $vars = @{ scroll = @{ limit=4; start = 0} }
+## Run a query with variables
+    Invoke-RingtailQuery -Query 'query enronCases ($name:String) { cases (name:$name) { id name }} -Variables @{name="Enron"}
+
+	NOTE: When specifying -Query and -Variables parameters in the command line, enclose
+		the query in single quotes, and form the variables as PowerShell objects.
+	
+	$vars = @{ scroll = @{ limit=4; start = 0} }
     Invoke-RingtailQuery -Path .\queries\GetCaseStatsScroll.txt -Variables $vars
 
-	NOTE: this just returns a single page of results
-	NOTE: if variables aren't supplied then the $scroll parameter is 
+	NOTE: This just returns a single page of results.
+	NOTE: If variables aren't supplied, then the $scroll parameter is 
 		ignored and the maximum number of results are returned. This allows you to write
-		a single query that can be used to return all results, a single page or to scroll 
-		through all (see the next example)
+		a single query that can be used to return all results, a single page, or to scroll 
+		through all (see the next example).
 
 ## Use a query with $scroll parameters and iterate/scroll through the data 
 `Invoke-RingtailQueryWithScroll -Path .\queries\GetCaseStatsScroll.txt`
