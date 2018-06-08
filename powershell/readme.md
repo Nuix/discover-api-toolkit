@@ -47,7 +47,8 @@ To update an existing profile, first delete the existing profile and then add it
 `Invoke-RingtailQuery -Path .\queries\GetCases.txt -Profile portal2`
 
 ## Run a query with variables
-    Invoke-RingtailQuery -Query 'query enronCases ($name:String) { cases (name:$name) { id name }} -Variables @{name="Enron"}
+    Invoke-RingtailQuery -Query 'query enronCases ($name:String) { cases (name:$name) { id name }}' 
+		-Variables @{name="Enron"}
 
 	NOTE: When specifying -Query and -Variables parameters in the command line, enclose
 		the query in single quotes, and form the variables as PowerShell objects.
