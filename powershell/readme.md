@@ -35,6 +35,32 @@ After setting up a profile, you should run a simple query to verify that it work
 To update an existing profile, first delete the existing profile and then add it again with the new parameters:
 `Remove-RingtailConfig -Name Portal1'
 
+The format of the config file is just a JSON array with the following structure:
+```json
+[
+    {
+	"name":  "default",
+	"uri":  "http://localhost/Ringtail.WebServices.Portal/api/query/",
+	"token":  "<big long token>",
+	"apiKey":  "<api key>"
+    },
+    {
+	"name":  "profile2",
+	"uri":  "<uri for portal api>",
+	"token":  "<big long token>",
+	"apiKey":  "<api key>"
+    }
+]
+```
+If there is only a single entry, then the array brackets are optional.
+```json
+{
+    "name":  "default",
+    "uri":  "http://localhost/Ringtail.WebServices.Portal/api/query/",
+    "token":  "<big long token>",
+    "apiKey":  "<api key>"
+}
+```
 
 # Examples 
 ## Run query defined on command line, without variables
