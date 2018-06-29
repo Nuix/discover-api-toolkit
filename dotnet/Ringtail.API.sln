@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ringtail.API", "src\Ringtail.API\Ringtail.API.csproj", "{FB392BE4-ACEE-4C8D-A88A-6881E4FA0DB5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleApp", "ExampleApp\ExampleApp.csproj", "{721934E3-5B47-4BF0-A238-24B82034D7DC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{FB392BE4-ACEE-4C8D-A88A-6881E4FA0DB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FB392BE4-ACEE-4C8D-A88A-6881E4FA0DB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FB392BE4-ACEE-4C8D-A88A-6881E4FA0DB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{721934E3-5B47-4BF0-A238-24B82034D7DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{721934E3-5B47-4BF0-A238-24B82034D7DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{721934E3-5B47-4BF0-A238-24B82034D7DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{721934E3-5B47-4BF0-A238-24B82034D7DC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

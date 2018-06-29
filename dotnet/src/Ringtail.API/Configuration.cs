@@ -24,6 +24,12 @@ namespace Ringtail.API
         public static Configuration Load(string profileName = "default")
         {
             var path = ConfigFilePath();
+
+            if (!File.Exists(path))
+            {
+                throw new FileNotFoundException(path);
+            }
+
             var text = File.ReadAllText(path);
 
             // Allow for an array of configurations
