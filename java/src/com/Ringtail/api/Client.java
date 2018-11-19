@@ -16,11 +16,6 @@ public class Client {
     public Client (Configuration config) {
         this.configuration = config;
 
-        Initialize();
-    }
-
-    private void Initialize() {
-
     }
 
     public String Execute(String query, String operation, Map<String, Object> variables ) throws IOException
