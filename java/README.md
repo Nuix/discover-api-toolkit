@@ -10,7 +10,7 @@ The Configuration class is used to read your configuration file located in ~\\.r
 
 The Client class is used to communicate with the the Ringtail API endpoint, send commands (queries and mutations) and return results.
 
-See the Example applicaton for more details. 
+See the Example application for more details.
 
 # Notes
 This project was created with Intellij IDEA CE 2018.2. 
