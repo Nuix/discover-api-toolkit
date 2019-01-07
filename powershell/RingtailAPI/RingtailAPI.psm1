@@ -132,7 +132,7 @@ function Invoke-RingtailQueryWithScroll {
     $vars.scroll = $scroll
 
     do {
-        $data = Invoke-RingtailQuery -Query $query -Variables $vars
+        $data = Invoke-RingtailQuery -Profile $profile -Query $query -Variables $vars
 
         # are we there yet? (Note: This makes the function specific
         # to 'cases' queries. Need to find a generic approach.) TODO
