@@ -1,11 +1,21 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29215.179
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ringtail.API", "src\Ringtail.API\Ringtail.API.csproj", "{FB392BE4-ACEE-4C8D-A88A-6881E4FA0DB5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleApp", "ExampleApp\ExampleApp.csproj", "{721934E3-5B47-4BF0-A238-24B82034D7DC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UploadExample", "src\UploadExample\UploadExample.csproj", "{7CD7EB68-4E3B-426E-AE9D-9DD593A71BF7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API Example", "API Example", "{54E94299-C74C-4D5D-84CD-95173668C1FC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FileTransfer Example", "FileTransfer Example", "{6EDB6187-38BA-4809-84A8-24F4C3F3A767}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{3A89395B-8145-4FA7-A093-48513B007092}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FASPClient", "src\FASPClient\FASPClient.csproj", "{50CEFF37-1C28-44CA-912D-F63651390CCD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,8 +31,25 @@ Global
 		{721934E3-5B47-4BF0-A238-24B82034D7DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{721934E3-5B47-4BF0-A238-24B82034D7DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{721934E3-5B47-4BF0-A238-24B82034D7DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7CD7EB68-4E3B-426E-AE9D-9DD593A71BF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CD7EB68-4E3B-426E-AE9D-9DD593A71BF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CD7EB68-4E3B-426E-AE9D-9DD593A71BF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CD7EB68-4E3B-426E-AE9D-9DD593A71BF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50CEFF37-1C28-44CA-912D-F63651390CCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50CEFF37-1C28-44CA-912D-F63651390CCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50CEFF37-1C28-44CA-912D-F63651390CCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50CEFF37-1C28-44CA-912D-F63651390CCD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{FB392BE4-ACEE-4C8D-A88A-6881E4FA0DB5} = {3A89395B-8145-4FA7-A093-48513B007092}
+		{721934E3-5B47-4BF0-A238-24B82034D7DC} = {54E94299-C74C-4D5D-84CD-95173668C1FC}
+		{7CD7EB68-4E3B-426E-AE9D-9DD593A71BF7} = {6EDB6187-38BA-4809-84A8-24F4C3F3A767}
+		{50CEFF37-1C28-44CA-912D-F63651390CCD} = {6EDB6187-38BA-4809-84A8-24F4C3F3A767}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {45F164D1-1290-4C39-86F7-CA85A59D721D}
 	EndGlobalSection
 EndGlobal

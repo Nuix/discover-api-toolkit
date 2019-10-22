@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -38,10 +40,15 @@ namespace Ringtail.API
 
         public async Task<HttpResponseMessage> Execute(string command, string operation = null, dynamic variables = null)
         {
-            var query = new GraphQLQuery() { OperationName=operation, Query = command, Variables = variables };
+            var query = new GraphQLQuery() { OperationName = operation, Query = command, Variables = variables };
             var content = JsonConvert.SerializeObject(query);
 
-            return await HttpClient.PostAsync("", new StringContent(content, Encoding.ASCII, "application/json"));
+            return await HttpClient.PostAsync("query", new StringContent(content, Encoding.ASCII, "application/json"));
+        }
+
+        public async Task<HttpResponseMessage> Post(string url, HttpContent content)
+        {
+            return await HttpClient.PostAsync(url, content);
         }
 
         private class GraphQLQuery
