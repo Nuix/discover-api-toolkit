@@ -61,26 +61,6 @@
   <ItemGroup>
     <Compile Include="FaspClient.cs" />
     <Compile Include="FASPConfig.cs" />
-    <Compile Include="FaspManager.Samples\ParallelTransferSample.cs" />
-    <Compile Include="FaspManager.Samples\PersistentDownloadSample.cs" />
-    <Compile Include="FaspManager.Samples\PersistentUploadSample.cs" />
-    <Compile Include="FaspManager.Samples\SampleFileTransferListener.cs" />
-    <Compile Include="FaspManager.Samples\SourceDestinatonPairSample.cs" />
-    <Compile Include="FaspStream.Samples\FaspStreamSample.cs" />
-    <Compile Include="FaspStream.Samples\GenericClientDownloadExample.cs" />
-    <Compile Include="FaspStream.Samples\GenericClientDownloadExampleWithOutOfBand.cs" />
-    <Compile Include="FaspStream.Samples\GenericClientUploadExample.cs" />
-    <Compile Include="FaspStream.Samples\GenericClientUploadExampleWithOutOfBand.cs" />
-    <Compile Include="FaspStream.Samples\GenericServerDownloadExample.cs" />
-    <Compile Include="FaspStream.Samples\GenericServerDownloadExampleWithOutOfBand.cs" />
-    <Compile Include="FaspStream.Samples\GenericServerUploadExample.cs" />
-    <Compile Include="FaspStream.Samples\GenericServerUploadExampleWithOutOfBand.cs" />
-    <Compile Include="FaspStream.Samples\HTTPLikeRequestMessage.cs" />
-    <Compile Include="FaspStream.Samples\HTTPLikeResponseMessage.cs" />
-    <Compile Include="FaspStream.Samples\HTTPPostLikeExampleClient.cs" />
-    <Compile Include="FaspStream.Samples\HTTPPostLikeExampleServer.cs" />
-    <Compile Include="FaspStream.Samples\MyFaspConnectionChannelClient.cs" />
-    <Compile Include="FaspStream.Samples\MyFaspConnectionChannelServer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SampleFileTransferListener.cs" />
   </ItemGroup>

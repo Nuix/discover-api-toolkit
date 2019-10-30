@@ -18,16 +18,17 @@ namespace UploadExample
         static async Task Main(string[] args)
         {
             Log("Getting configuration");
-            Config = Configuration.Load();
+            Config = Configuration.Load("edtworkinggroup");
             Client = new Client(Config);
 
             var caseResult = await GetCaseUsingVariables("Clean_Enron");
             
             Log(string.Format("Found {0} Clean_Enron cases", caseResult.data.cases.Count));
 
-            Log(string.Format("First case id={0}", caseResult.data.cases[0].id));
+            var caseId = (int)caseResult.data.cases[0].id.Value;
+            Log(string.Format("using Clean_Enron caseId: {0}", caseId));
 
-            var tokenResult = await GetAsperaToken("Clean_Enron");
+            var tokenResult = await GetAsperaToken(caseId);
             dynamic tokenData = tokenResult.data.asperaToken;
             
             var config = new FASPConfig()
@@ -41,11 +42,8 @@ namespace UploadExample
 
             var faspClient = new FaspClient(config);
             var keyfile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "asperaweb_id_dsa.openssh");
-            faspClient.SendFile("test.txt", AppDomain.CurrentDomain.BaseDirectory, "TestFolder", keyfile);
+            faspClient.SendFile("test.txt", AppDomain.CurrentDomain.BaseDirectory, keyfile);
 
-            //streaming does not work yet, the library returns a licensing error blocking further progress
-            //we are waiting on IBM support for a resolution
-            //faspClient.SendStream("test.txt", AppDomain.CurrentDomain.BaseDirectory, "TestFolder", keyfile);
             Console.Write("Press the <return> key to exit...");
             Console.ReadLine();
         }
@@ -59,11 +57,11 @@ namespace UploadExample
             return await RunAsync(command, vars);
         }
 
-        private static async Task<dynamic> GetAsperaToken(string caseName)
+        private static async Task<dynamic> GetAsperaToken(int caseId)
         {
 
-            var command = @"query AsperaToken($caseName: String) { asperaToken(caseName: $caseName) { token, port, path, hostname, user } }";
-            var vars = new { caseName = caseName };
+            var command = @"query AsperaToken($caseId: Int) { asperaToken(caseId: $caseId) { token, port, path, hostname, user } }";
+            var vars = new { caseId = caseId };
             return await RunAsync(command, vars);
         }
 

@@ -18,33 +18,37 @@ namespace FASPClient
             _config = config;
             Aspera.Transfer.Environment.setFaspScpPath("FaspRedist\\ascp.exe");
         }
-        public void SendFile(string source, string sourceRoot, string dest, string keyfilepath)
+        public void SendFile(string source, string sourceRoot, string keyfilepath)
         {
             var manager = FaspManager.getInstance();
 
             var xferListener = new SampleFileTransferListener();
-            string key;
-
+            
             RemoteFileLocation remoteLocaton = new RemoteFileLocation(_config.HostName, _config.User, keyfilepath, null);
-            remoteLocaton.addPath(dest);
             var host = remoteLocaton.getHost();
             LocalFileLocation localLocation = new LocalFileLocation();
-            localLocation.addPath(source, "TempFolder\\test.text");
+            //where to find the file to send
+            //inSrc = relative to the sourceRoot 
+            //inDest = where to drop the file on the server, relative to the destinationRoot
+            //inDest can be used to move or rename files while sending
+            localLocation.addPath(source, source);
 
             XferParams xferParams = new XferParams()
             {
                 cipher = Cipher.AES_128,
                 createDirs = true,
                 policy = Policy.FAIR,
+                //the bearer token enforces this client cannot access anything outside the path in the response
+                //any attempts will result in the following error
+                //Authorization refused: invalid token - transfer files don't match
                 token = _config.Token,
                 tcpPort = _config.Port,
                 udpPort = _config.Port,
-                targetRateKbps = 10000,
+                targetRateKbps = 10000, //this can be adjusted but beware, yo
                 applyLocalDocroot = true,
-                //the bearer token enforces this client cannot access anything outside this folder
-                //any attempts will result in the following error
-                //Authorization refused: invalid token - transfer files don't match
-                destinationRoot = _config.Path, 
+                //root path at the server to drop files (this should match the path in the token response)
+                destinationRoot = _config.Path,
+                //root path of the transfer, all local sources should be relative to this
                 sourceRoot = sourceRoot,
                 saveBeforeOverwriteEnabled = true,
             };
@@ -71,62 +75,6 @@ namespace FASPClient
             Console.WriteLine("All done! Press any key to exit...");
             Console.Read();
             FaspManager.destroy();
-        }
-
-        public void SendStream(string source, string sourceRoot, string dest, string keyfilepath)
-        {
-            var srcFilePath = Path.Combine(sourceRoot, source);
-            if (!File.Exists(srcFilePath))
-            {
-                Console.WriteLine("The source file specified is not valid (" + srcFilePath + "). Please provide a valid file path");
-                System.Environment.Exit(2);
-            }
-            try
-            {
-                var f = new FileInfo(srcFilePath);
-                var srcFileStream = f.Open(FileMode.Open, FileAccess.Read);
-                //FileStream srcFileStream = File.Open(srcFilePath, System.IO.FileMode.Open);
-                BufferedStream srcBuffStream = new BufferedStream(srcFileStream);
-
-                //var fsc = new FaspStreamClient();
-                //fsc.FaspStreamPath = @".\faspstream.exe";
-                //fsc.SSHUser = _config.User;
-                //fsc.SSHKeyFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "asperaweb_id_dsa.openssh");
-                //fsc.Port = _config.Port;
-                //fsc.UdpPort = _config.Port;
-                //fsc.TransferMode = Constants.TRANSFER_MODE_TYPE.SEND;
-
-                ////fsc.Hostname = _config.HostName;
-                //// Connect to server
-                //fsc.connect(_config.HostName);
-
-                var fos = new FaspOutputStreamSAE();
-                fos.AscpPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ascp.exe");
-                fos.Username = _config.User;
-                fos.Password = "PASSWORD";
-                fos.Token = _config.Token;
-                fos.SshKeyFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "asperaweb_id_dsa.openssh");
-                fos.TcpPort = _config.Port;
-                fos.UdpPort = _config.Port;
-                fos.DestinationDirectory = _config.Path;
-                fos.DestinationFilename = dest + DateTime.Now.ToFileTimeUtc();
-                fos.connect(_config.HostName, f.Length);
-                byte[] data = new byte[Constants.TWO_Mb];
-                int count;
-                while ((count = srcBuffStream.Read(data, 0, data.Length)) > 0)
-                {
-                    //Loop over the input data and write to the faspstream output stream to transfer
-                    fos.write(data, 0, count);
-                }
-                srcBuffStream.Close();
-                fos.close();
-
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-
         }
     }
 }

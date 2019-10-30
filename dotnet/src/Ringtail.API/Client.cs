@@ -43,7 +43,7 @@ namespace Ringtail.API
             var query = new GraphQLQuery() { OperationName = operation, Query = command, Variables = variables };
             var content = JsonConvert.SerializeObject(query);
 
-            return await HttpClient.PostAsync("query", new StringContent(content, Encoding.ASCII, "application/json"));
+            return await HttpClient.PostAsync("", new StringContent(content, Encoding.ASCII, "application/json"));
         }
 
         public async Task<HttpResponseMessage> Post(string url, HttpContent content)
