@@ -37,12 +37,6 @@
     <Reference Include="FaspManager.Samples, Version=3.7.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\FaspManager.Samples.3.7.2.0\lib\net40\FaspManager.Samples.exe</HintPath>
     </Reference>
-    <Reference Include="FaspStream-2017, Version=3.7.3.0, Culture=neutral, PublicKeyToken=9f78e918675bbf2b, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\FaspStream.3.7.3\lib\net40\FaspStream-2017.dll</HintPath>
-    </Reference>
-    <Reference Include="FaspStreamCombinedSample, Version=3.7.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\FaspStream.Samples.3.7.3\lib\net40\FaspStreamCombinedSample.exe</HintPath>
-    </Reference>
     <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
     </Reference>
