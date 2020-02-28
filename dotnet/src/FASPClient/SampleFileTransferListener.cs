@@ -28,23 +28,24 @@ namespace FASPClient
         /// <param name="fileStats">Statistics of the last file transferred in this session</param>
         public void fileSessionEvent(TransferEvent transferEvent, SessionStats sessionStats, FileStats fileStats)
         {
-            displayProgress(transferEvent, sessionStats, fileStats);
+            //displayProgress(transferEvent, sessionStats, fileStats);
 
             if (transferEvent == TransferEvent.SESSION_START)
             {
-                Console.WriteLine("Session Started. ID: {0}", sessionStats.SessionId);
-                Console.WriteLine("Tags: {0}", sessionStats.Tags.ToString(Newtonsoft.Json.Formatting.None));
+                //Console.WriteLine("Session Started. ID: {0}", sessionStats.SessionId);
+                //Console.WriteLine("Tags: {0}", sessionStats.Tags.ToString(Newtonsoft.Json.Formatting.None));
                 sessionStartWaitHandle.Set();
             }
 
             if (transferEvent == TransferEvent.SESSION_STOP)
             {
-                Console.WriteLine("\tSession Stopped");
+                //Console.WriteLine("\tSession Stopped");
                 sessionStopWaitHandle.Set();
             }
-            else if (transferEvent == TransferEvent.SESSION_ERROR)
+            else if (transferEvent == TransferEvent.SESSION_ERROR || transferEvent == TransferEvent.FILE_ERROR || transferEvent == TransferEvent.FILE_SKIP)
             {
                 Console.WriteLine(sessionStats.ErrorDescription);
+				sessionStopWaitHandle.Set();
             }
         }
 
