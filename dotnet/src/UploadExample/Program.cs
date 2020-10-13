@@ -10,6 +10,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Script.Serialization;
 
 namespace UploadExample
 {
@@ -20,10 +21,9 @@ namespace UploadExample
 
         static async Task Main(string[] args)
         {
-            var folder = @"D:\engineToDiscover\export1";
+            var folder = @"c:\temp";
             var filesToSend = Directory.EnumerateFiles(folder, "*", SearchOption.AllDirectories);
-            var files = filesToSend.ToList();
-            var s3Time = SendViaAWS(files);
+            var s3Time = SendViaAWS(filesToSend);
             Console.WriteLine("Aws time: " + s3Time);
             //var aspTime = await SendViaAspera(files);
             //var aspTime = await SendViaAspera(new List<string>() { folder });
@@ -81,27 +81,33 @@ namespace UploadExample
         {
             var watch = new Stopwatch();
             watch.Start();
-
+            var prefix = bucketprefix;
             //var creds = new SessionAWSCredentials()
             var awsClient = new AwsClient(new AwsConfig()
             {
-                BucketName = "test-bucket-drf-nuix",
+                BucketName = "test-bucket-nuix-xfer",
                 BucketRegion = RegionEndpoint.USEast1,
                 Credentials = new SessionAWSCredentials(
                     //accessKeyId
-                    "some key",
+                    temporaryKeyId,
                     //secretAccessKey
-                    "some secret",
+                    temporarySecret,
                     //sessionToken
-                    "some session token"
+                    temporarySessionToken
                 ), 
                 //credentials are restricted to only be able to access objects with this prefix 
-                Prefix = "test/Nuix_Discover_17a0a750-aee7-4bed-b90f-b532660403c3"
+                Prefix = prefix
             });
             var tasks = new List<Task>();
+            var metafiles = new List<FileMetaData>();
             foreach(var file in files) {
-                tasks.Add(awsClient.SendFile(file));
+                var fileInfo = new FileInfo(file);
+                var key = Guid.NewGuid().ToString();
+                var fileMeta = new FileMetaData(prefix, key, fileInfo);
+                //metafiles.Add(fileMeta);
+                tasks.Add(awsClient.SendFile(key, fileMeta, file));
             }
+            //tasks.Add(awsClient.SendData("._metadata.1", new MemoryStream(System.Text.Encoding.UTF8.GetBytes(new JavaScriptSerializer().Serialize(metafiles)))));
             Task.WaitAll(tasks.ToArray());
             watch.Stop();
             return watch.Elapsed;
