@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 
-namespace Ringtail.API
+namespace Discover.APIToolkit
 {
     [DataContract]
     public class Configuration

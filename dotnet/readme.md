@@ -1,7 +1,7 @@
 # DotNet libraries and example code
 The code in the Ringtail.API project provides a mechanism for interacting with the Discover Connect API. 
 
-See the ExampleApp to see how to use the Ringtail.API project. 
+See the ExampleApp to see how to use the Discover.APIToolkit project. 
 
 # Details
 There are two basic classes:  Config and Client. 

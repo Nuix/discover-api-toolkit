@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Ringtail.API")]
+[assembly: AssemblyTitle("Discover.APIToolkit")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Nuix")]
-[assembly: AssemblyProduct("Ringtail.API")]
+[assembly: AssemblyProduct("Discover.APIToolkit")]
 [assembly: AssemblyCopyright("Copyright © Nuix 2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

@@ -1,5 +1,5 @@
 # Overview
-The RingtailAPI PowerShell module is used to manage tokens, API keys, and to interact with the Discover Connect API using Windows PowerShell
+The RingtailAPI PowerShell module is used to manage tokens and to interact with the Discover Connect API using Windows PowerShell
 
 	Note: This has been validated on Powershell 4 but should work under Powershell 3 as well.
 
@@ -13,8 +13,8 @@ Until this module is available in PowershellGallery, you can install directly fr
 `Get-Command -Module RingtailAPI`
 If the RingtailAPI module has been imported successfully, this will return a list of commands provided by the module.
 
-# Manage your tokens and keys
-This module looks for a configuration file in <$home>\.ringtail\config. Although you can edit the configuration file with any text editor (it's in json format), you can also use a series of methods to create and manage various *profiles*. Each *profile* maps to a combination of Discover portal, apikey, token, and uri to the portal API endpoint. 
+# Manage your tokens
+This module looks for a configuration file in <$home>\.ringtail\config. Although you can edit the configuration file with any text editor (it's in json format), you can also use a series of methods to create and manage various *profiles*. Each *profile* maps to a combination of Discover portal, token, and uri to the portal API endpoint. 
 
 All *profiles* are named. If no name is provided, the name *default* is used. 
 
@@ -41,14 +41,12 @@ The format of the config file is just a JSON array with the following structure:
     {
 	"name":  "default",
 	"uri":  "http://localhost/Ringtail.WebServices.Portal/api/query/",
-	"token":  "<big long token>",
-	"apiKey":  "<api key>"
+	"token":  "<big long token>"
     },
     {
 	"name":  "profile2",
 	"uri":  "<uri for portal api>",
-	"token":  "<big long token>",
-	"apiKey":  "<api key>"
+	"token":  "<big long token>"
     }
 ]
 ```
@@ -57,8 +55,7 @@ If there is only a single entry, then the array brackets are optional.
 {
     "name":  "default",
     "uri":  "http://localhost/Ringtail.WebServices.Portal/api/query/",
-    "token":  "<big long token>",
-    "apiKey":  "<api key>"
+    "token":  "<big long token>"
 }
 ```
 
