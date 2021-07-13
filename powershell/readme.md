@@ -1,5 +1,5 @@
 # Overview
-The RingtailAPI PowerShell module is used to manage tokens and to interact with the Discover Connect API using Windows PowerShell
+The DiscoverAPIToolkit PowerShell module is used to manage tokens and to interact with the Discover Connect API using Windows PowerShell
 
 	Note: This has been validated on Powershell 4 but should work under Powershell 3 as well.
 
@@ -7,11 +7,11 @@ The RingtailAPI PowerShell module is used to manage tokens and to interact with 
 Until this module is available in PowershellGallery, you can install directly from Github
 1. Clone this repository
 2. Open PowerShell and change to the `.\discover-api-toolkit\powershell` sub-directory 
-3. Import the module by running the following command in PowerShell: `Import-Module \\Path\to\RingtailAPI`, replacing `\\Path\to\` with the actual full path
-4. Alternatively, install the module by copying the RingtailAPI directory to one of the valid module locations outlined here: https://msdn.microsoft.com/en-us/library/dd878350(v=vs.85).aspx
+3. Import the module by running the following command in PowerShell: `Import-Module \\Path\to\DiscoverAPIToolkit`, replacing `\\Path\to\` with the actual full path
+4. Alternatively, install the module by copying the DiscoverAPIToolkit directory to one of the valid module locations outlined here: https://msdn.microsoft.com/en-us/library/dd878350(v=vs.85).aspx
 5. Verify that the module is loaded correctly by running the following command in PowerShell:
-`Get-Command -Module RingtailAPI`
-If the RingtailAPI module has been imported successfully, this will return a list of commands provided by the module.
+`Get-Command -Module DiscoverAPIToolkit`
+If the DiscoverAPIToolkit module has been imported successfully, this will return a list of commands provided by the module.
 
 # Manage your tokens
 This module looks for a configuration file in <$home>\.ringtail\config. Although you can edit the configuration file with any text editor (it's in json format), you can also use a series of methods to create and manage various *profiles*. Each *profile* maps to a combination of Discover portal, token, and uri to the portal API endpoint. 
@@ -88,7 +88,7 @@ If there is only a single entry, then the array brackets are optional.
 `Invoke-RingtailQueryWithScroll -Path .\queries\GetCaseStatsScroll.txt`
 
 ## Drill down to the cases results
-`Invoke-RingtailQuery -Path .\queries\GetCases.txt | Select -ExpandProperty data | Select -ExpandProperty cases `
+`Invoke-RingtailQuery -Path .\queries\GetCases.txt | Select -ExpandProperty data | Select -ExpandProperty cases`
 
 ## Convert results to Json
 `Invoke-RingtailQuery -Path .\queries\GetCaseStatsScroll.txt -Variables $vars  | ConvertTo-json -Depth 10`
