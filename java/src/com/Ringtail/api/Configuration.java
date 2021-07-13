@@ -14,8 +14,6 @@ public class Configuration {
     public String Name;
     @JsonProperty("token")
     public String Token;
-    @JsonProperty("apiKey")
-    public String ApiKey;
     @JsonProperty("uri")
     public String Uri;
 

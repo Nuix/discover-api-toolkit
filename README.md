@@ -1,4 +1,4 @@
-# ringtail-api-toolkit
+# discover-api-toolkit
 Tools and libraries for interacting with the Discover Connect API
 
 # License

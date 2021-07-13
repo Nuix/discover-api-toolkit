@@ -16,8 +16,6 @@ namespace Ringtail.API
         public string Name { get; private set; }
         [DataMember(Name = "token")]
         public string Token { get; private set; }
-        [DataMember(Name = "apiKey")]
-        public string ApiKey { get; private set; }
         [DataMember(Name = "uri")]
         public string Uri { get; private set; }
 

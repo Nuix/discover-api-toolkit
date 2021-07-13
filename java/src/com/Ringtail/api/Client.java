@@ -23,7 +23,6 @@ public class Client {
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.setRequestMethod("POST");
         connection.setRequestProperty("Authorization", "Bearer " + configuration.Token);
-        connection.setRequestProperty("ApiKey", configuration.ApiKey);
         connection.setRequestProperty("Content-Type", "application/json");
         connection.setDoInput(true);
         connection.setDoOutput(true);
