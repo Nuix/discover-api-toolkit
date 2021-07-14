@@ -1,7 +1,7 @@
 package Example;
 
-import com.Ringtail.api.Client;
-import com.Ringtail.api.Configuration;
+import com.Discover.apitoolkit.Client;
+import com.Discover.apitoolkit.Configuration;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -16,7 +16,7 @@ public class Main {
             String query = "query NamedCases($name: String) { cases(name: $name) { id name} }";
             String operation = "NamedCases";
             Map<String, Object> variables = new HashMap<String, Object>();
-            variables.put("name", "APAC");
+            variables.put("name", "Clean_Enron");
 
             Client client = new Client(config);
             String result = client.Execute(query, operation, variables);

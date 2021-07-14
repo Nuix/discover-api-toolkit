@@ -1,4 +1,4 @@
-package com.Ringtail.api;
+package com.Discover.apitoolkit;
 
 import java.io.*;
 import java.nio.charset.Charset;

@@ -4,7 +4,7 @@ The code in this project provides a mechanism for interacting with the Discover 
 See the Example application to see how to use the project.
 
 # Details
-There are two basic classes:  com.Ringtail.api.Configuration and Client. 
+There are two basic classes:  Configuration and Client. 
 
 The Configuration class is used to read your configuration file located in ~\\.ringtail\config. See the readme in the powershell example for documentation on how to setup your config file.
 

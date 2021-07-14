@@ -1,4 +1,4 @@
-package com.Ringtail.api;
+package com.Discover.apitoolkit;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -37,8 +37,6 @@ public class Client {
         OutputStreamWriter writer = new OutputStreamWriter(connection.getOutputStream());
         mapper.writeValue(writer, request);
         writer.close();
-
-        // int status = connection.getResponseCode();
 
         BufferedReader in = new BufferedReader(
                 new InputStreamReader(connection.getInputStream()));
