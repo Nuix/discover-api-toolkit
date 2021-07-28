@@ -1,4 +1,4 @@
-package com.Ringtail.api;
+package com.Discover.apitoolkit;
 
 import java.io.*;
 import java.nio.charset.Charset;
@@ -14,8 +14,6 @@ public class Configuration {
     public String Name;
     @JsonProperty("token")
     public String Token;
-    @JsonProperty("apiKey")
-    public String ApiKey;
     @JsonProperty("uri")
     public String Uri;
 

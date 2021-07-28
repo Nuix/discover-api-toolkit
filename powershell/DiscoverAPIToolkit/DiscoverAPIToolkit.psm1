@@ -57,8 +57,6 @@ function Add-RingtailConfig {
         [Parameter(Mandatory)]
         [string]$Token,
         [Parameter(Mandatory)]
-        [string]$ApiKey,
-        [Parameter(Mandatory)]
         [string]$Uri
     )
         if( [string]::IsNullOrEmpty($Name) ) {
@@ -69,7 +67,7 @@ function Add-RingtailConfig {
     [Array]$config = Get-RingtailConfig -List
     
     #Create the new entry
-    $newConfig = [PSCustomObject]@{name=$Name; token=$Token; apiKey=$ApiKey; uri=$Uri}
+    $newConfig = [PSCustomObject]@{name=$Name; token=$Token; uri=$Uri}
     $config += $newConfig
 
     # Save it back out
@@ -160,12 +158,10 @@ function Invoke-RingtailQuery {
 
     $config = Get-RingtailConfig -Profile $Profile
     $token = $config.token
-    $key = $config.apiKey
     $uri = $config.uri
 
     $headers = @{}
     $headers.Add("Authorization", "Bearer $token")
-    $headers.Add("ApiKey", $key)
 
 
     ## Execute the query

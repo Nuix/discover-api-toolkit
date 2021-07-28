@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace Ringtail.API
+namespace Discover.APIToolkit
 {
     public class Client
     {
@@ -29,7 +29,6 @@ namespace Ringtail.API
 
             HttpClient = new HttpClient();
             HttpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Configuration.Token);
-            HttpClient.DefaultRequestHeaders.Add("ApiKey", Configuration.ApiKey);
             HttpClient.BaseAddress = new Uri(Configuration.Uri);
             HttpClient.DefaultRequestHeaders.Accept.Clear();
             HttpClient.DefaultRequestHeaders.Accept.Add(

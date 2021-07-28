@@ -1,9 +1,8 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29230.47
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ringtail.API", "src\Ringtail.API\Ringtail.API.csproj", "{FB392BE4-ACEE-4C8D-A88A-6881E4FA0DB5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Discover.APIToolkit", "src\Discover.APIToolkit\Discover.APIToolkit.csproj", "{FB392BE4-ACEE-4C8D-A88A-6881E4FA0DB5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleApp", "ExampleApp\ExampleApp.csproj", "{721934E3-5B47-4BF0-A238-24B82034D7DC}"
 EndProject
@@ -24,5 +23,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DC16F55A-80C4-4E32-9E7E-1E82D26C4738}
 	EndGlobalSection
 EndGlobal

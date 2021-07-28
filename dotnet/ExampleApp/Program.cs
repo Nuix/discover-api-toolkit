@@ -5,8 +5,8 @@ using System.Net.Configuration;
 using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
+using Discover.APIToolkit;
 using Newtonsoft.Json;
-using Ringtail.API;
 
 namespace ExampleApp
 {

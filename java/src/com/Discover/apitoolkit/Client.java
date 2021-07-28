@@ -1,4 +1,4 @@
-package com.Ringtail.api;
+package com.Discover.apitoolkit;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -23,7 +23,6 @@ public class Client {
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.setRequestMethod("POST");
         connection.setRequestProperty("Authorization", "Bearer " + configuration.Token);
-        connection.setRequestProperty("ApiKey", configuration.ApiKey);
         connection.setRequestProperty("Content-Type", "application/json");
         connection.setDoInput(true);
         connection.setDoOutput(true);
@@ -38,8 +37,6 @@ public class Client {
         OutputStreamWriter writer = new OutputStreamWriter(connection.getOutputStream());
         mapper.writeValue(writer, request);
         writer.close();
-
-        // int status = connection.getResponseCode();
 
         BufferedReader in = new BufferedReader(
                 new InputStreamReader(connection.getInputStream()));
