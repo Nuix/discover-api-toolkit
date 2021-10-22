@@ -69,8 +69,6 @@
     <Compile Include="Client.cs" />
     <Compile Include="Configuration.cs" />
     <Compile Include="Logger.cs" />
-    <Compile Include="models\Case.cs" />
-    <Compile Include="models\QueryResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Queries.cs" />
     <Compile Include="Executor.cs" />

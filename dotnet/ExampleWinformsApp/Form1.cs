@@ -1,5 +1,4 @@
 ﻿using Discover.APIToolkit;
-using Discover.APIToolkit.models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
