@@ -1,10 +1,13 @@
-﻿Microsoft Visual Studio Solution File, Format Version 12.00
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29230.47
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Discover.APIToolkit", "src\Discover.APIToolkit\Discover.APIToolkit.csproj", "{FB392BE4-ACEE-4C8D-A88A-6881E4FA0DB5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleApp", "ExampleApp\ExampleApp.csproj", "{721934E3-5B47-4BF0-A238-24B82034D7DC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleWinformsApp", "ExampleWinformsApp\ExampleWinformsApp.csproj", "{8D645804-92D7-43B8-B5AC-5738DB809DAA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,6 +23,10 @@ Global
 		{721934E3-5B47-4BF0-A238-24B82034D7DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{721934E3-5B47-4BF0-A238-24B82034D7DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{721934E3-5B47-4BF0-A238-24B82034D7DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D645804-92D7-43B8-B5AC-5738DB809DAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D645804-92D7-43B8-B5AC-5738DB809DAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D645804-92D7-43B8-B5AC-5738DB809DAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D645804-92D7-43B8-B5AC-5738DB809DAA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
